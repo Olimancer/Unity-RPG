@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e26c4efcde4e69a4793c05a2b5801f6d
+labels:
+- Player
+timeCreated: 1517201029
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _animatorOverride: {fileID: 22100000, guid: 09e93555bd58df44ea028b885ab3b5fb,
+      type: 2}
+  - _currentMeleeWeapon: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

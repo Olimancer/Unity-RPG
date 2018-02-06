@@ -6,35 +6,62 @@ using Game.CameraNS;
 namespace Game.Characters.PlayerNS {
 	[RequireComponent(typeof (AICharacterControl))]
 	[RequireComponent(typeof (ThirdPersonCharacter))]
+	[RequireComponent(typeof (MeleeWeaponAttack))]
 	
-	public class PlayerMovement : MonoBehaviour {
+	public class PlayerControls : MonoBehaviour {
 
 		//private ThirdPersonCharacter 	_character;
-		private GameObject				_moveTarget			= null;
-		private AICharacterControl		_aiController		= null;
-	//	private Vector3					_movement			= Vector3.zero;
-	//	private bool					_isMovingToTarget 	= false;
-		private bool					_isInDirectMode 	= false; // TODO: consider making static later (likely inside the main player class script once created)
+		private GameObject				_moveTarget				= null;
+		private AICharacterControl		_aiController			= null;
+		private MeleeWeaponAttack		_meleeAttackController 	= null;
+	//	private Vector3					_movement				= Vector3.zero;
+		private bool					_isMovingToTarget 		= false;
+		private bool					_isInDirectMode 		= false;
+
+		delegate bool ActionBool();
 
 		private Vector3 ShortenDestination(Vector3 destination, float shortFactor) {
 			return destination - ((destination - transform.position).normalized * shortFactor);
 		}
 
+
+
+		private void MoveTo(Transform target) {
+			_aiController.SetTarget(target);
+		}
+
+		private void MoveToAnd<DelegateType>(Transform target, DelegateType action) {
+//			action;
+		}
+
+		private bool AttackTargetInRange(GameObject target) {
+			if (_meleeAttackController.IsTargetInRange(target)) {
+				_meleeAttackController.AttackTarget(target);
+				return true;
+			}
+			return false;
+		}
+
 		private void ProcessMouseClick(RaycastHit raycastHit, Layer layerHit) {
 			// Change beheviour depending on the layer hit
 			switch(layerHit) {
-				case (Layer.Walkable): // Walkable
+				case (Layer.Walkable):
 					_moveTarget.transform.position = raycastHit.point;
-					_aiController.SetTarget(_moveTarget.transform);
+					MoveTo(_moveTarget.transform);
 					break;
-				case (Layer.Enemy): // Enemies
-					_aiController.SetTarget(raycastHit.transform);
+				case (Layer.Enemy):
+					if (!AttackTargetInRange(raycastHit.collider.gameObject)) {
+						MoveTo(raycastHit.transform);
+					} else {
+					//	TODO: Move to target and attack
+					}
 					break;
-				case (Layer.Object): // Objects
+				case (Layer.Object):
+					// TODO: Interact with object
 					print("Object[ion]!");
 					break;
 				default:
-					print("The Eternal void has been detected! (shouln't be!)");
+					Debug.LogError("No layer detected! Are you under or at the edge of the map?");
 					return;
 			}
 		}
@@ -64,10 +91,16 @@ namespace Game.Characters.PlayerNS {
 // -- Game loops
 
 		void Start() {
-			_aiController		= GetComponent<AICharacterControl>();
-			_moveTarget			= new GameObject("Player Move Target");
-
+			_aiController			= GetComponent<AICharacterControl>();
+			_moveTarget				= new GameObject("Player Move Target");
+			_meleeAttackController 	= GetComponent<MeleeWeaponAttack>();
 			Camera.main.GetComponent<CameraRaycaster>()._notifyMouseClicked += ProcessMouseClick;
+		}
+
+		void LateUpdate() {
+			if (_isMovingToTarget) {
+
+			}
 		}
 	}
 }

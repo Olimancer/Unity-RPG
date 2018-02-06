@@ -1,8 +1,6 @@
 fileFormatVersion: 2
-guid: ff77bcfdb3cd3db47bd8ef02ed3af534
-labels:
-- Player
-timeCreated: 1506577889
+guid: 1479e6648565ae34b99c0e4053897878
+timeCreated: 1517873327
 licenseType: Free
 MonoImporter:
   externalObjects: {}

@@ -10,7 +10,7 @@ namespace Game.Characters {
 		[SerializeField] private float 				_meleeAttackRadius 		= 2.15f;
 
 		[SerializeField] private float 				_maxHealth 				= 250;
-		private float								_currentHealth 			= 250;
+		private float								_currentHealth;
 		public float 								_health 				{ get { return _currentHealth; } }
 		public float 								_healthAsPercentage 	{ get { return (_currentHealth / _maxHealth); } }
 
@@ -20,7 +20,7 @@ namespace Game.Characters {
 	// -- Game init and loops
 
 		void Start() {
-			
+			_currentHealth = _maxHealth;
 		}
 
 	// -- On events

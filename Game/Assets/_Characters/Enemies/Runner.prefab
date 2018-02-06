@@ -343,6 +343,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1344599504438350
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4115515101624448}
+  - component: {fileID: 114006683572225642}
+  m_Layer: 0
+  m_Name: GripSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1350979795530834
 GameObject:
   m_ObjectHideFlags: 1
@@ -448,6 +464,7 @@ GameObject:
   - component: {fileID: 114334667404591198}
   - component: {fileID: 195679463757563178}
   - component: {fileID: 114943637239168366}
+  - component: {fileID: 114443806569361988}
   - component: {fileID: 114411716832028482}
   m_Layer: 9
   m_Name: Runner
@@ -1407,6 +1424,19 @@ Transform:
   m_Father: {fileID: 4887561533075670}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4115515101624448
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344599504438350}
+  m_LocalRotation: {x: -0.17337438, y: -0.4016935, z: 0.87846524, w: -0.19204827}
+  m_LocalPosition: {x: -0.019, y: 0.078, z: -0.062}
+  m_LocalScale: {x: 0.6552401, y: 0.6552401, z: 0.6552401}
+  m_Children: []
+  m_Father: {fileID: 4874552321480996}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -230.564, y: 166.312, z: 18.173996}
 --- !u!4 &4121167796184208
 Transform:
   m_ObjectHideFlags: 1
@@ -2366,7 +2396,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1397565648955658}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.63, y: 0, z: -17.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4232990177383516}
@@ -2403,6 +2433,7 @@ Transform:
   - {fileID: 4512864867122178}
   - {fileID: 4782458022859932}
   - {fileID: 4498021033010618}
+  - {fileID: 4115515101624448}
   m_Father: {fileID: 4644757900783722}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2573,6 +2604,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114006683572225642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344599504438350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94fa0a8ee7873f84eaba3726069bad9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDominantHand: 1
 --- !u!114 &114013509777248686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2675,7 +2718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &114411716832028482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2737,6 +2779,22 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114443806569361988
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1397565648955658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 194736b2f4366a34b8350d3dc776d041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentMeleeWeapon: {fileID: 11400000, guid: c89cf0cca408fdd4685aa013fa132f84,
+    type: 2}
+  _minDamage: 15
+  _maxDamage: 35
+  _attackRecoveryOffset: 1
 --- !u!114 &114563387419040962
 MonoBehaviour:
   m_ObjectHideFlags: 1

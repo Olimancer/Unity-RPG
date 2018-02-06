@@ -6,7 +6,7 @@ namespace Game.Characters {
 	public class Enemy : Character, IDamageable {
 
 		[SerializeField] private float 	_maxHealth 			= 250f;
-		[SerializeField] internal float _maxMeleeRange		= 7f;
+		[SerializeField] internal float _maxMeleeRange		= 7f; // NOTE: To be replace with ability range at some point
 
 		private float					_currentHealth;
 		

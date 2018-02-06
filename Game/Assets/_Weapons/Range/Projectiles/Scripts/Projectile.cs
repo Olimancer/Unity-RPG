@@ -14,6 +14,7 @@ namespace Game.Weapons {
 	// -- On Events
 
 		void OnCollisionEnter(Collision collision) {
+			print(collision.collider.gameObject.ToString());
 			var damageable = collision.collider.gameObject.GetComponent(typeof(IDamageable));
 			if (damageable) {
 				(damageable as IDamageable).TakeDamage(_attackDamage + _projectileDamage);

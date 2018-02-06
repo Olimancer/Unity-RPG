@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 
 // Control menu for the Generators.
-// Will add menus in the "Edit" 
+// Will add menus in the custom "Tools" menu
 namespace Game.Utils.EnumNS {
 	public class EnumBuilderCaller : EditorWindow {
 		// Add a reference to your EnumFileBuilder script in this list
@@ -12,7 +12,7 @@ namespace Game.Utils.EnumNS {
 		};
 
 
-		[MenuItem("Edit/Generate Enums/All")]
+		[MenuItem("Tools/Generate Enums/All")]
 		static void GenerateEnums() {
 			foreach (EnumFileBuilder builder in _buildersList) {
 				builder.GenerateEnum();
@@ -20,7 +20,7 @@ namespace Game.Utils.EnumNS {
 			Debug.Log("Generation completed");
 		}
 
-		[MenuItem("Edit/Generate Enums/Layer")]
+		[MenuItem("Tools/Generate Enums/Layer")]
 		static void GenerateLayer() {
 			_buildersList[0].GenerateEnum();
 		}

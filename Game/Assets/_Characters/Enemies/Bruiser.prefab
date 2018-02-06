@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 195103893406801124}
   - component: {fileID: 114570326461350690}
   - component: {fileID: 114866519022909382}
+  - component: {fileID: 114484305066459558}
   m_Layer: 9
   m_Name: Bruiser
   m_TagString: Untagged
@@ -647,6 +648,22 @@ GameObject:
   - component: {fileID: 4838576967045246}
   m_Layer: 9
   m_Name: EthanLeftArm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1379084228987072
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4047262525371780}
+  - component: {fileID: 114773861638435336}
+  m_Layer: 0
+  m_Name: GripSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1412,6 +1429,7 @@ Transform:
   - {fileID: 4923680439653228}
   - {fileID: 4557951130552304}
   - {fileID: 4583331259531780}
+  - {fileID: 4047262525371780}
   m_Father: {fileID: 4101788117922328}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1429,6 +1447,19 @@ Transform:
   m_Father: {fileID: 4781140334058670}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4047262525371780
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1379084228987072}
+  m_LocalRotation: {x: -0.16965613, y: -0.43059328, z: 0.8770483, w: -0.12881193}
+  m_LocalPosition: {x: 0.01, y: -0.012, z: -0.106}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4029586061600448}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -233.03601, y: 161.915, z: 7.6299896}
 --- !u!4 &4055889330991018
 Transform:
   m_ObjectHideFlags: 1
@@ -1669,7 +1700,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1159607159142614}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -18.7005, y: 0.01, z: -46.329964}
   m_LocalScale: {x: 1.3682132, y: 1.368213, z: 1.368213}
   m_Children:
   - {fileID: 4356947507579520}
@@ -2603,7 +2634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &114394699493623020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2679,6 +2709,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114484305066459558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1159607159142614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 194736b2f4366a34b8350d3dc776d041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentMeleeWeapon: {fileID: 11400000, guid: c89cf0cca408fdd4685aa013fa132f84,
+    type: 2}
+  _minDamage: 35
+  _maxDamage: 50
+  _attackRecoveryOffset: 3
 --- !u!114 &114496049298117408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2712,7 +2758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 200
-  _maxMeleeRange: 4.1
+  _maxMeleeRange: 0
 --- !u!114 &114674798807681304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2762,6 +2808,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a70445762cb0564eaf972d92f188ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114773861638435336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1379084228987072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94fa0a8ee7873f84eaba3726069bad9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDominantHand: 1
 --- !u!114 &114807212593222130
 MonoBehaviour:
   m_ObjectHideFlags: 1

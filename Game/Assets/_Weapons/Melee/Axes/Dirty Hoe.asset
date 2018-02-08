@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7104f198dabd14a866fac1b84bacd1, type: 3}
   m_Name: Dirty Hoe
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 1274797246840802, guid: cc0dbe33ee8adbe4eb124e2d95d37fe4,
+  _weaponPrefab: {fileID: 1972078430746066, guid: cc173b770a1c01543aa0bda5578b87b9,
     type: 2}
   _attackAnimation: {fileID: 7400000, guid: 0aff331e10899bc469be4bd79a7ff2a7, type: 3}
   _attackRange: 1.49

@@ -1,8 +1,14 @@
 fileFormatVersion: 2
 guid: f582bcb2a8112f044b413a9beb7689a2
+labels:
+- Architecture
+- HealthyFoliage
+- Mushroom
 timeCreated: 1489027402
 licenseType: Free
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

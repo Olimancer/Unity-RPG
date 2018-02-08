@@ -9,7 +9,8 @@ namespace Game.Characters {
 
 		[SerializeField] protected Weapon				_currentMeleeWeapon = null;
 		protected GameObject							_mainHand			= null; // Instanciate weapon reference to allow destruction
-		protected AnimatorOverrideController 			_animatorOverride 	= null;
+		protected Animator 								_animator		 	= null;
+		protected AnimatorOverrideController			_animatorOverride	= null;
 		protected Transform 							_dominantHand		= null;
 	//	private Transform								_secondaryHand	 	= null;
 
@@ -33,6 +34,7 @@ namespace Game.Characters {
 			if (damageable && notOnCooldown) {
 				_lastHitTime = Time.time;
 				(damageable as IDamageable).TakeDamage(_damageOutput);
+				_animator.SetTrigger("Attack");
 			}
 		}
 
@@ -80,9 +82,9 @@ namespace Game.Characters {
 		}
 
 		private void InitAnimatorOverride() {
-			var animator = GetComponent<Animator>();
-			_animatorOverride = new AnimatorOverrideController(animator.runtimeAnimatorController);
-			animator.runtimeAnimatorController = _animatorOverride;
+			_animator = GetComponent<Animator>();
+			_animatorOverride = new AnimatorOverrideController(_animator.runtimeAnimatorController);
+			_animator.runtimeAnimatorController = _animatorOverride;
 		}
 
 		protected void Init() {

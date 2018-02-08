@@ -1,8 +1,14 @@
 fileFormatVersion: 2
 guid: 9989915caf641514a84c6ed4d68e5c28
+labels:
+- HealthyFoliage
+- Tree
+- Vegetation
 timeCreated: 1490795629
 licenseType: Free
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

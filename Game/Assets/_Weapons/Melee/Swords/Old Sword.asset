@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7104f198dabd14a866fac1b84bacd1, type: 3}
+  m_Name: Old Sword
+  m_EditorClassIdentifier: 
+  _weaponPrefab: {fileID: 1070531605660204, guid: 71f7264efdd1f5345886925c72217ca5,
+    type: 2}
+  _attackAnimation: {fileID: 7400000, guid: 0bab65d0ec71af9458a5456e383ce2de, type: 3}
+  _attackRange: 2
+  _attackRecoveryTime: 1

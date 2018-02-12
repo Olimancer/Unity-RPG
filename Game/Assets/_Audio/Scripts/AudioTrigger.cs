@@ -1,62 +1,64 @@
 ﻿using UnityEngine;
-
-public class AudioTrigger : MonoBehaviour {
-
-   [SerializeField] private AudioClip  _audioclip  = null;
-
-   [Tooltip("Only GameObject belonging to this layer will be able to activate the trigger")]
-   [SerializeField] private int     _layerFilter   = Layer.Player; // TODO: Make editor script to show layer name in editor for easier use
-   [SerializeField] private float   _triggerRadius = 5f;
    
-   [SerializeField] private bool    _playOnlyOnce	= false;
-   [SerializeField] private bool    _hasPlayed     = false;
-   
-   private AudioSource              _audioSource   = null;
+namespace Game.Audio {
+   public class AudioTrigger : MonoBehaviour {
 
-// -- Initialisation
+      [SerializeField] private AudioClip              _audioclip     = null;
 
-   private void CreateAudioSource() {
-      _audioSource = gameObject.AddComponent<AudioSource>();
-      _audioSource.playOnAwake = false;
-      _audioSource.clip = _audioclip;
-   }
+      [Tooltip("Only GameObject belonging to this layer will be able to activate the trigger")]
+      [HideInInspector][SerializeField] private int   _layerFilter   = Layer.Player; // Property added to inspector through editor script
+      [SerializeField] private float                  _triggerRadius = 5f;
+      
+      [SerializeField] private bool                   _playOnlyOnce	= false;
+      [SerializeField] private bool                   _hasPlayed     = false;
+      
+      private AudioSource                             _audioSource   = null;
 
-   private void CreateSphereCollider() {
-      SphereCollider sphereCollider = gameObject.AddComponent<SphereCollider>();
-      sphereCollider.isTrigger = true;
-      sphereCollider.radius = _triggerRadius;
-   }
+   // -- Initialisation
 
-// -- Play audio
-
-   private void RequestPlayAudio() {
-      if (_playOnlyOnce && _hasPlayed) {
-         return;
-      } else if (!_audioSource.isPlaying) {
-         _audioSource.Play();
-         _hasPlayed = true;
+      private void CreateAudioSource() {
+         _audioSource = gameObject.AddComponent<AudioSource>();
+         _audioSource.playOnAwake = false;
+         _audioSource.clip = _audioclip;
       }
-   }
 
-// -- Game init and loops
+      private void CreateSphereCollider() {
+         SphereCollider sphereCollider = gameObject.AddComponent<SphereCollider>();
+         sphereCollider.isTrigger = true;
+         sphereCollider.radius = _triggerRadius;
+      }
 
-   void Start() {
-      CreateAudioSource();
-      CreateSphereCollider();
-   }	
+   // -- Play audio
 
-// -- On Events
+      private void RequestPlayAudio() {
+         if (_playOnlyOnce && _hasPlayed) {
+            return;
+         } else if (!_audioSource.isPlaying) {
+            _audioSource.Play();
+            _hasPlayed = true;
+         }
+      }
 
-   void OnTriggerEnter(Collider collider) {
-   //	if (collider.gameObject.layer == _layerFilter) {
-         
-   //	}
-   }
+   // -- Game init and loops
 
-// -- Editor Only
+      void Start() {
+         CreateAudioSource();
+         CreateSphereCollider();
+      }	
 
-   void OnDrawGizmos() {
-      Gizmos.color = new Color(100f, 200f, 0, 1f);
-   	Gizmos.DrawWireSphere(transform.position, _triggerRadius);
+   // -- On Events
+
+      void OnTriggerEnter(Collider collider) {
+      	if (collider.gameObject.layer == _layerFilter) {
+            _audioSource.Play();
+      	}
+      }
+
+   // -- Editor Only
+
+      void OnDrawGizmos() {
+         Gizmos.color = new Color(100f, 200f, 0, 1f);
+         Gizmos.DrawWireSphere(transform.position, _triggerRadius);
+      }
    }
 }

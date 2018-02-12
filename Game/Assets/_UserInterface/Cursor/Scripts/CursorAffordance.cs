@@ -11,7 +11,7 @@ public class CursorAffordance : MonoBehaviour {
    // TODO: Add option to change the cursor size dynamically (between 24 and 46 pixel)
 
    void Start () {
-   //	Camera.main.GetComponent<CameraRaycaster>()._notifyLayerChange += OnLayerChange;
+   	Camera.main.GetComponent<CameraRaycaster>()._notifyLayerChange += OnLayerChange;
    }
 
    // Called everytime the cursor switch over another layer

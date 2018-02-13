@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Collections.Generic;
-
-// FIXME: When two GameObject belonging to the same layer are overlapping the second one is ignored. Make sure the one closest to the camera is always the one kept in those cases.
 
 namespace Game.Cameras {
    public class CameraRaycaster : MonoBehaviour {
@@ -34,13 +31,6 @@ namespace Game.Cameras {
       }
 
       RaycastHit? FindTopPriorityHit(RaycastHit[] raycastHits) {
-         List<int> layersHit = new List<int>();
-
-         // Populate the list with the layers' number of hit colliders
-         foreach (RaycastHit hit in raycastHits) {
-            layersHit.Add(hit.collider.gameObject.layer);
-         }
-
          // Step through the layers to find the one with top priority
          foreach (int layerInt in _layerPriorities) {
             foreach (RaycastHit hit in raycastHits) {
@@ -53,18 +43,18 @@ namespace Game.Cameras {
          return null; // Did not find anything within the priority list
       }
 
-      RaycastHit? SeekCurrentPriorityLayer() {
+      void SeekCurrentPriorityLayer() {
          Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
          RaycastHit[] raycastHits = Physics.RaycastAll(ray, _maxRaycastDepth);
 
-         return FindTopPriorityHit(raycastHits);
+         _lastRaycastHit = FindTopPriorityHit(raycastHits);
       }
 
-// -- Game loops
+   // -- Game loops
 
       void Update() {
          SeekUIElement();
-         _lastRaycastHit = SeekCurrentPriorityLayer();
+         SeekCurrentPriorityLayer();
          if (Input.GetMouseButton(0)) {
             if (_lastRaycastHit != null) { _notifyMouseClicked(_lastRaycastHit.Value, _lastLayerHit); }
          }

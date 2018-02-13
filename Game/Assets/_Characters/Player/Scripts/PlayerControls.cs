@@ -91,9 +91,9 @@ namespace Game.Characters.Players {
 // -- Game loops
 
       void Start() {
-         _aiController			= GetComponent<AICharacterControl>();
-         _moveTarget				= new GameObject("Player Move Target");
-         _meleeAttackController 	= GetComponent<MeleeWeaponAttack>();
+         _aiController           = GetComponent<AICharacterControl>();
+         _moveTarget             = new GameObject("Player Move Target");
+         _meleeAttackController  = GetComponent<MeleeWeaponAttack>();
          Camera.main.GetComponent<CameraRaycaster>()._notifyMouseClicked += ProcessMouseClick;
       }
 

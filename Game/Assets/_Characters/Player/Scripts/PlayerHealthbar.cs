@@ -8,17 +8,17 @@ namespace Game.Characters.Players {
       private Slider    _healthbar  = null;
       private Player    _player     = null;
 
-// -- Game init and loops
+   // -- Game init and loops
 
       void Start() {
          _healthbar = GetComponentInChildren<Slider>();
          _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-         _player._notifyPlayerDamaged += OnPlayerDamaged;
+         _player._notifyPlayerDamaged += UpdateHealthbar;
       }
       
-// -- On Events
+   // -- On Events
 
-      private void OnPlayerDamaged() {
+      private void UpdateHealthbar() {
          _healthbar.value = _player._healthAsPercentage;
       }
    }

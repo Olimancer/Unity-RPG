@@ -14,10 +14,7 @@ namespace Game.Audio {
             var property = serializedObject.FindProperty("_layerFilter");
             property.intValue = EditorGUILayout.LayerField(property.intValue);
          EditorGUILayout.EndHorizontal();
-         serializedObject.ApplyModifiedProperties();
-
-         
-         
+         serializedObject.ApplyModifiedProperties(); 
       }
    }
 }

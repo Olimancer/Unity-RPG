@@ -27,7 +27,7 @@ namespace Game.Characters {
    // -- On events
 
       public void TakeDamage(float damage) {
-          _currentHealth -= Mathf.Clamp(damage, 0f, _maxHealth);
+         _currentHealth -= Mathf.Clamp(damage, 0f, _maxHealth);
          _notifyPlayerDamaged();
       }
    // -- Editor Only

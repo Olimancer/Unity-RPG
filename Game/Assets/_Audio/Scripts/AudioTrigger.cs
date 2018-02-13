@@ -5,7 +5,7 @@ namespace Game.Audio {
 
       [SerializeField] private AudioClip              _audioclip     = null;
 
-      [Tooltip("Only GameObject belonging to this layer will be able to activate the trigger")]
+      
       [HideInInspector][SerializeField] private int   _layerFilter   = Layer.Player; // Property added to inspector through editor script
       [SerializeField] private float                  _triggerRadius = 5f;
       

@@ -17,7 +17,7 @@ namespace Game.Cameras {
          }
       }
 
-      // Update the editor with the correct layer numbers and names
+      // Update the editor to show layer as names
       void BindArrayElements() {
          int currentArraySize = serializedObject.FindProperty("_layerPriorities.Array.size").intValue;
          for (int i = 0; i < currentArraySize; i++) {
